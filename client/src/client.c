@@ -90,7 +90,7 @@ void leer_consola(t_log* logger)
 	leido = readline("> ");
 
 	// El resto, las vamos leyendo y logueando hasta recibir un string vacío
-	while(strcmp(leido, "") != 0){
+	while(leido[0] != '\0'){
 		log_info(logger, leido);
 		free(leido);
 		leido = readline("> ");

@@ -34,6 +34,15 @@ int main(void)
 
 	config = config_create("cliente.config");
 
+	if(config == NULL){
+		abort();
+	}
+	
+	ip = config_get_string_value(config, "IP");
+	puerto = config_get_string_value(config, "PUERTO");
+	valor = config_get_string_value(config, "CLAVE");
+
+	log_info(logger, "IP: %s, PUERTO: %s, CLAVE: %s", ip, puerto, valor);
 
 	/* ---------------- LEER DE CONSOLA ---------------- */
 
@@ -56,6 +65,7 @@ int main(void)
 	/*---------------------------------------------------PARTE 5-------------------------------------------------------------*/
 	// Proximamente
 	log_destroy(logger);
+	config_destroy(config);
 }
 
 t_log* iniciar_logger(void)

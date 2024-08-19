@@ -38,15 +38,21 @@ int main(void)
 		abort();
 	}
 	
-	ip = config_get_string_value(config, "IP");
-	puerto = config_get_string_value(config, "PUERTO");
-	valor = config_get_string_value(config, "CLAVE");
+	if(config_has_property(config, "IP")){
+		ip = config_get_string_value(config, "IP");
+	}
+	if(config_has_property(config, "PUERTO")){
+		puerto = config_get_string_value(config, "PUERTO");
+	}
+	if(config_has_property(config, "CLAVE")){
+		valor = config_get_string_value(config, "CLAVE");
+	}
 
 	log_info(logger, "IP: %s, PUERTO: %s, CLAVE: %s", ip, puerto, valor);
 
 	/* ---------------- LEER DE CONSOLA ---------------- */
 
-	leer_consola(logger);
+	//leer_consola(logger);
 
 	/*---------------------------------------------------PARTE 3-------------------------------------------------------------*/
 
